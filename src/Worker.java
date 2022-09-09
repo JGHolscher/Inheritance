@@ -1,5 +1,5 @@
 public class Worker extends Person{
-    double hourlyPayRate; //pay
+    double hourlyPayRate;//pay
     double normalPay;
     double payTotal;
     double overTimePay;
@@ -8,7 +8,7 @@ public class Worker extends Person{
 
     public Worker(String fName, String lName, String title, int YOB, double hourlyPayRate) {
         super(fName, lName, title, YOB);/// maybe don't need this??
-        hourlyPayRate = 0;
+        this.hourlyPayRate = hourlyPayRate;
     }
 
     public double getHourlyPayRate() {
@@ -26,8 +26,8 @@ public class Worker extends Person{
             if(hoursWorked > 40){ // ((hoursWorked - 40) * (1.5 * hourlyPayRate)) + (40 * hourlyPayRate)
                 //pay = 15?
 
-                this.overTimePay = ((hoursWorked - 40) * (1.5 * hourlyPayRate));
-                this.normalPay = (40 * hourlyPayRate);
+                overTimePay = ((hoursWorked - 40) * (1.5 * hourlyPayRate));
+                normalPay = (40 * hourlyPayRate);
                 this.payTotal = overTimePay + normalPay;
                 return payTotal;
             }
@@ -40,18 +40,20 @@ public class Worker extends Person{
         }
         public String displayWeeklyPay(double hoursWorked){
             if(hoursWorked > 40){
-            System.out.println("Pay for first 40 hours worked, " + this.normalPay
-                    + ". Overtime hours worked, " + (hoursWorked - 40)
-                    + ", Pay for overtime hours worked, " + overTimePay
-                            + ". Total hours worked, " + hoursWorked
-                            + ", Total pay for the week, " + this.payTotal );
+                String output = new String ("Pay for first 40 hours worked, " + normalPay
+                        + ". Overtime hours worked, " + (hoursWorked - 40)
+                        + ", Pay for overtime hours worked, " + overTimePay
+                        + ". Total hours worked, " + hoursWorked
+                        + ", Total pay for the week, " + payTotal);
+                return output;
             }
 
             else{
-                System.out.println("Total hours worked, " + hoursWorked + ". Total pay for the week, " + this.payTotal);
+                String output = new String ("Total hours worked, " + hoursWorked + ". Total pay for the week, " + this.payTotal);
+                return output;
             }
 
-            return ;
+
 
         }
 }
