@@ -4,8 +4,6 @@ public class Worker extends Person{
     double payTotal;
     double overTimePay;
 
-
-
     public Worker(String fName, String lName, String title, int YOB, double hourlyPayRate) {
         super(fName, lName, title, YOB);/// maybe don't need this??
         this.hourlyPayRate = hourlyPayRate;
@@ -19,12 +17,9 @@ public class Worker extends Person{
         this.hourlyPayRate = hourlyPayRate;
     }
 
-
-
     public double calculateWeeklyPay(double hoursWorked){
 
             if(hoursWorked > 40){ // ((hoursWorked - 40) * (1.5 * hourlyPayRate)) + (40 * hourlyPayRate)
-                //pay = 15?
 
                 overTimePay = ((hoursWorked - 40) * (1.5 * hourlyPayRate));
                 normalPay = (40 * hourlyPayRate);
@@ -52,8 +47,15 @@ public class Worker extends Person{
                 String output = new String ("Total hours worked, " + hoursWorked + ". Total pay for the week, " + this.payTotal);
                 return output;
             }
-
-
-
         }
+
+    @Override
+    public String toString() {
+        return "Worker{" +
+                "hourlyPayRate=" + hourlyPayRate +
+                ", normalPay=" + normalPay +
+                ", payTotal=" + payTotal +
+                ", overTimePay=" + overTimePay +
+                '}';
+    }
 }
